@@ -1,0 +1,112 @@
+.home-header-banner {
+    background         : url('../../assets/bookingcare-cover.jpg');
+    height             : 95vh;
+    background-repeat  : no-repeat;
+    background-size    : cover;
+    background-position: center;
+    box-sizing: border-box;
+    //padding: 15px 0;
+
+    .content-up {
+
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1));
+        height          : 65%;
+        padding-top     : 50px;
+
+
+        .title1 {
+            text-align   : center;
+            font-size    : 35px;
+            text-shadow  : 1px 1px 1px #333;
+            margin-bottom: 5px;
+            //margin-top: 50px;
+            color        : white;
+            //margin-top: 30px;
+        }
+
+        .title2 {
+            text-align   : center;
+            font-size    : 34px;
+            text-shadow  : 1px 1px 1px #333;
+            color        : white;
+            font-weight  : 600;
+            margin-bottom: 25px;
+        }
+
+        .search {
+            width          : fit-content;
+            display        : flex;
+            justify-content: center;
+            align-items    : center;
+            background     : #f7d800;
+            margin         : 0 auto;
+            padding        : 10px;
+            border-radius  : 25px;
+
+            i {
+                margin: 0 5px;
+
+            }
+
+            input {
+                height    : 30px;
+                width     : 350px;
+                border    : none;
+                outline   : none;
+                background: transparent;
+            }
+        }
+    }
+
+    .content-down {
+        //border: 1px solid yellow;
+        height          : 35%;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+
+        .options {
+            list-style        : none;
+            display           : flex;
+            text-align        : center;
+            // justify-content: center;
+            // align-items: center;
+            // flex-wrap: wrap;
+            grid-gap          : 30px;
+
+            .option-child {
+                height   : 110px;
+                min-width: 90px;
+
+
+                .icon-child {
+                    background   : white;
+                    width        : 50px;
+                    height       : 50px;
+                    padding      : 10px;
+                    border-radius: 50%;
+                    text-align   : center;
+                    margin       : 0 auto;
+                    box-shadow   : 0px 1px 2px rgba(0, 0, 0, 0.5);
+
+                    i {
+                        color    : #49bce2;
+                        font-size: 25px;
+                    }
+                }
+
+                .text-child {
+                    width      : 100px;
+                    font-size  : 16px;
+                    font-weight: bold;
+
+                    &:hover {
+                        color : #49bce2;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

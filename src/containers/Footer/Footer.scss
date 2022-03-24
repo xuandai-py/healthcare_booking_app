@@ -1,0 +1,14 @@
+.footer-container {
+    background: #64b9e5;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+
+    .icon{
+        margin: 5px;
+        width: 32px;
+        height: 32px;
+    }
+}
