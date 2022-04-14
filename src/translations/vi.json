@@ -26,6 +26,11 @@
         "out-standing-doctor": "Bác sĩ nổi bật tuần qua",
         "more-info": "Xem thêm"
     },
+
+    "manage-schedule": {
+        "title": "Quản lý kế hoạch khám bệnh bác sĩ"
+    },
+
     "common": {
         "add": "Thêm",
         "edit": "Sửa",

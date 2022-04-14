@@ -26,6 +26,11 @@
         "out-standing-doctor": "Week's outstanding doctor",
         "more-info": "Watch more"
     },
+
+    "manage-schedule": {
+        "title": "Manage doctor's schedule"
+    },
+
     "common": {
         "add": "Add",
         "edit": "Edit",
