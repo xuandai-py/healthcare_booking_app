@@ -5,7 +5,7 @@ import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
 import './Login.scss';
 import { FormattedMessage } from 'react-intl';
-import { handleLogin} from '../../services/userService'
+import { handleLogin } from '../../services/userService'
 
 class Login extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class Login extends Component {
         }
     }
 
-    
+
 
     onChangeInputUsername = (event) => {
         this.setState({
@@ -28,7 +28,7 @@ class Login extends Component {
 
     onChangeInputPassword = (event) => {
         this.setState({
-            
+
             password: event.target.value
         })
 
@@ -40,19 +40,19 @@ class Login extends Component {
         })
 
         try {
-            let data =  await handleLogin(this.state.username, this.state.password)
-            if(data && data.errCode !== 0){
+            let data = await handleLogin(this.state.username, this.state.password)
+            if (data && data.errCode !== 0) {
                 this.setState({
                     errorMessage: data.errMessage
-                })      
+                })
             } else {
                 this.props.userLoginSuccess(data.user)
                 console.log("Login successful");
             }
 
         } catch (error) {
-            if(error.response){
-                if(error.response.data) {
+            if (error.response) {
+                if (error.response.data) {
                     this.setState({
                         errorMessage: error.response.data.errMessage
                     })
@@ -62,17 +62,23 @@ class Login extends Component {
         }
     }
 
-    handleShowHidePassword =() => {
+    handleShowHidePassword = () => {
         this.setState({
             isShowPassword: !this.state.isShowPassword
         })
+    }
+
+    handleKeyDown = (event) => {
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            this.handleLogin();
+        }
     }
 
     render() {
         return (
             <div className="login-background">
                 <div className="login-container md-4 lg-1 sm-3">
-                
+
                     <div className="login-content row">
                         <div className="col-12 text-login">Login</div>
                         <div className="col-12 form-group login-input">
@@ -82,15 +88,20 @@ class Login extends Component {
                         <div className="col-12 form-group login-input" >
                             <label>Password:</label>
                             <div className="custom-input-password">
-                                <input className="form-control" required type={this.state.isShowPassword? 'text' : 'password'} placeholder="Enter your password" value={this.state.password} onChange={e => this.onChangeInputPassword(e)} />
+                                <input className="form-control" required
+                                    type={this.state.isShowPassword ? 'text' : 'password'}
+                                    placeholder="Enter your password" value={this.state.password}
+                                    onChange={e => this.onChangeInputPassword(e)}
+                                    onKeyDown={(event) => this.handleKeyDown(event)}
+                                />
                                 <span onClick={() => this.handleShowHidePassword()}>
-                                    <i className={this.state.isShowPassword ? "far fa-eye" : "far fa-eye-slash" }></i>
+                                    <i className={this.state.isShowPassword ? "far fa-eye" : "far fa-eye-slash"}></i>
 
                                 </span>
                             </div>
-        
+
                         </div>
-                        <div className="col-12" style={{ color: 'red'}}>
+                        <div className="col-12" style={{ color: 'red' }}>
                             {this.state.errorMessage}
                         </div>
                         <div className="col-12 ">

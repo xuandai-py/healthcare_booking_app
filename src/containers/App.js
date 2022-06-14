@@ -14,6 +14,7 @@ import { path } from '../utils';
 import Login from './Auth/Login';
 import HomePage from './HomePage/HomePage';
 import DoctorDetail from './Patient/Doctor/DoctorDetail';
+import VerifyEmail from './Patient/VerifyEmail';
 import Doctor from '../routes/Doctor';
 
 
@@ -55,10 +56,11 @@ class App extends Component {
                                     <Route path={path.TEST} exact component={(Test)} />
                                     <Route path={path.HOMEPAGE} exact component={HomePage} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
-                                <Route path={`/doctor/`} component={userIsAuthenticated(Doctor)} />
+                                    <Route path={`/doctor/`} component={userIsAuthenticated(Doctor)} />
 
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
-                                    <Route path={path.DOCTOR_DETAIL} component={DoctorDetail}/>
+                                    <Route path={path.DOCTOR_DETAIL} component={DoctorDetail} />
+                                    <Route path={path.VERIFY_EMAIL} component={VerifyEmail} />
 
                                 </Switch>
                             </div>

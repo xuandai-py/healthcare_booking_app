@@ -1,0 +1,46 @@
+.profile-doctor-container{
+
+    .intro-doctor {
+        height : 120px;
+        // display: flex;
+        // gap    : 10px;
+        // padding: 0 100px;
+        // margin: 10px 0;
+
+        .content-left {
+            //width        : 25%;
+        
+            width        : 80px;
+            height       : 80px;
+            border-radius: 50%;
+            //margin       : 10px 20px;
+
+            background-position: center;
+            background-repeat  : no-repeat;
+            background-size    : cover;
+        }
+
+        .content-right {
+            width         : calc(100% - 80px);
+            //padding-top: 10px;
+            display       : flex;
+            flex-direction: column;
+            gap           : 10px;
+            .name {
+                font-weight: 600;
+                font-size  : 20px;
+            }
+
+            .description{
+                text-align: justify;
+            }
+        }
+    }
+    .common{
+        display: flex;
+        height : 100%;
+        gap    : 10px;
+        //padding: 0 100px;
+        //margin: 10px 0;
+    }
+}

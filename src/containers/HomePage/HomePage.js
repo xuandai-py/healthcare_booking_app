@@ -33,7 +33,7 @@ class HomePage extends Component {
         }
 
         return (
-            <div>
+            <div styles='display: flex; flex-direction: column'>
                 <HomeHeader />
                 <HomeBanner />
                 <Specialty setting={settings}/>
@@ -41,7 +41,7 @@ class HomePage extends Component {
                 <OutstandingDotor setting={settings} />
                 <HandBook setting={settingHandbook} />
                 <About />
-                <Footer />
+                <Footer styles='flex-grow: 1;'/>
            </div>
         );
     }

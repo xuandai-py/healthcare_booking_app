@@ -1,13 +1,20 @@
 .doctor-detail-container {
-    height : 500px;
-   
+    border: 1px solid green;
 
-    .intro-doctor {
+    .common{
         display: flex;
-        height : 120px;
+        height : 100%;
         gap    : 10px;
         padding: 0 100px;
         margin: 10px 0;
+    }
+
+    .intro-doctor {
+        height : 120px;
+        // display: flex;
+        // gap    : 10px;
+        // padding: 0 100px;
+        // margin: 10px 0;
 
         .content-left {
             width        : 25%;
@@ -20,6 +27,9 @@
             background-position: center center;
             background-repeat  : no-repeat;
             background-size    : cover;
+
+            
+
         }
 
         .content-right {
@@ -28,7 +38,6 @@
             display       : flex;
             flex-direction: column;
             gap           : 10px;
-
             .name {
                 font-weight: 600;
                 font-size  : 20px;
@@ -45,6 +54,7 @@
         border-bottom: 1px solid #ddd;
         border-top: 2px solid #ddd;
         background-color: #f9f9f9;
+        border: 1px solid orange;
         
         h3{
             font-size: 17px;

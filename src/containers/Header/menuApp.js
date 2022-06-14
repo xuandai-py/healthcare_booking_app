@@ -18,10 +18,8 @@ export const adminMenu = [
                 name: 'menu.admin.manage-admin', link: '/system/user-admin'
             },
             { // quan ly ke hoach kham benh
-               
-                        name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
-                    
-                
+
+                name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
             }
             // { name: 'menu.system.system-parameter.header', link: '/system/system-parameter' },
         ]
@@ -56,10 +54,10 @@ export const doctorMenu = [
         menus: [
 
             { // quan ly nguoi dung
-               
-                        name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
-                    
-                
+
+                name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
+
+
             }]
     }
 ]

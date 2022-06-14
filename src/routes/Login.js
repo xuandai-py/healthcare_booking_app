@@ -146,7 +146,7 @@ class Login extends Component {
                                 type="submit"
                                 className="btn"
                                 value={LanguageUtils.getMessageByKey("login.login", lang)}
-                                onClick={this.processLogin}
+                                onSubmit={this.processLogin}
                             />
                         </div>
                     </div>

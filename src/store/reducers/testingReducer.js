@@ -9,7 +9,10 @@ const initialState = {
     users: [],
     topDoctors: [],
     test: [1, 2, 3],
-    allDoctors: []
+    allDoctors: [],
+    allScheduleTime: [],
+
+    allRequiredDoctorInfor: []
 }
 
 const appReducer = (state = initialState, action) => {
@@ -98,6 +101,32 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state,
             }
+         // 
+            case actionTypes.FETCH_AllCODE_SCHEDULE_TIME_SUCCESS:
+                state.allScheduleTime = action.dataTime;
+                return {
+                    ...state,
+                }
+            
+            case actionTypes.FETCH_AllCODE_SCHEDULE_TIME_FAIL:
+                state.allScheduleTime = [];
+                return {
+                    ...state,
+                }
+        
+            case actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_SUCCESS:
+            state.allRequiredDoctorInfor = action.data;
+            
+            console.log('fetchRequiredDoctorInfor: ', action);
+                return {
+                    ...state,
+                }
+            
+            case actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_FAIL:
+                state.allRequiredDoctorInfor = [];
+                return {
+                    ...state,
+                }
         default:
             return state;
     }

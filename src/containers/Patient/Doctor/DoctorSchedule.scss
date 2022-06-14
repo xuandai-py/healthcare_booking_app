@@ -1,0 +1,64 @@
+.doctor-schedule-container{
+    height: 100%;
+    margin: 10px 0;
+
+    .all-schedule{   
+    }
+
+    .all-available-time{
+        .text-calendar{
+            color: #333;
+            margin: 10px 0;
+        
+                span{
+                text-transform: uppercase;
+                margin-left: 5px;
+            
+        }
+        }
+
+        .time-content{
+            
+            .select-appointment{
+                display: flex;
+                gap: 15px;
+                flex-wrap:wrap;
+
+                button {
+                    padding: 8px 10px;
+                    border: none;
+                    outline: none;
+                    background-color: hsl(200, 71%, 65%);
+                    border-radius: 3px;
+                font-weight: 600;
+                color: #fff;
+
+                &:hover{
+                    background-color: #f7d800;
+                    color: #333;
+                }
+            }
+
+            .btn-vie{
+                min-width: 120px;
+
+            }
+            
+            .btn-en{
+                min-width: 160px;
+                
+            }
+            
+        }
+         
+            .book-free{
+                margin-top: 10px;
+            }
+
+            .no-appointment{
+                font-style: italic;
+                font-size: larger;
+            }
+        }
+    }
+}

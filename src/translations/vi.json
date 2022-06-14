@@ -22,22 +22,84 @@
         "dental": "Khám nha khoa"
 
     },
-    "homepage": {
+"homepage": {
         "out-standing-doctor": "Bác sĩ nổi bật tuần qua",
         "more-info": "Xem thêm"
     },
 
     "manage-schedule": {
-        "title": "Quản lý kế hoạch khám bệnh bác sĩ"
+        "title": "Quản lý kế hoạch khám bệnh bác sĩ",
+        "choose-doctor": "Chọn bác sĩ",
+        "choose-date": "Chọn ngày",
+        "save": "Lưu thông tin"
+    },
+
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Lịch khám",
+            "no-appointment": "Bác sĩ hiện không có lịch khám trong ngày. Hãy chọn một ngày khác!!!",
+            "select": "Chọn",
+           "book-free": " và đặt chỗ miễn phí"
+        },
+        "extra-doctor-infor": {
+            "text-address" : "Địa chỉ khám",
+            "price": "Giá khám",
+            "detail": "Xem chi tiết",
+            "payment": "Bệnh nhân có thể thanh toán bằng các hình thức: ",
+            "hide-price": "Ẩn bảng giá"
+        },
+        "booking-modal": {
+            "title": "Thông tin đặt lịch khám bệnh",
+            "fullName": "Họ và tên",
+            "phoneNumber": "Số điện thoại",
+            "email": "Địa chỉ Email",
+            "address" : "Địa chỉ liên lạc",
+            "reason": "Lý do khám",
+            "birthday": "Ngày sinh",
+            "gender" :"Giới tính",
+            "btnConfirm": "Xác nhận",
+            "btnCancel": "Hủy",
+            "priceBooking": "Miễn phí đặt lịch",
+            "price": "Giá khám"
+        }
+    },
+
+    "doctor": {
+        "manage-doctor": {
+            "append-doctor-info": "QUản lý thông tin bác sĩ",
+            "select-doctor": "Chọn bác sĩ",
+            "info": "Thông tin giới thiệu",
+            "appointment-charge": "Chọn giá khám",
+            "payment-method": "Phương thức thanh toán",
+            "province-state": "Chọn tỉnh thành",
+            "clinic-name": "Tên phòng khám",
+            "clinic-location": "Địa chỉ phòng khám",
+            "note": "Ghi chú",
+            "comment": "Thông tin"
+        }
+    },
+
+    "specialty": {
+        "save": "save",
+        "manage-specialty": {
+            "title": "Quản lý chuyên khoa",
+            "home-title": "Chuyên khoa phổ biến",
+            "more": "Xem thêm",
+            "add-new": "Thêm mới",
+            "name": "Tên chuyên khoa",
+            "image": "Ảnh chuyên khoa"
+        }
     },
 
     "common": {
         "add": "Thêm",
+        "addInfo": "Thêm thông tin",
         "edit": "Sửa",
         "delete": "Xóa",
         "decentralize": "Phân quyền",
         "close": "Đóng",
         "save": "Lưu",
+        "saveInfo": "Lưu thông tin",
         "refresh": "Refresh",
         "accept": "Chấp nhận",
         "confirm": "Xác nhận",

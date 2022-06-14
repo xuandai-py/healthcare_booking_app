@@ -28,16 +28,80 @@
     },
 
     "manage-schedule": {
-        "title": "Manage doctor's schedule"
+        "title": "Manage doctor's schedule",
+        "choose-doctor": "Select doctor",
+        "choose-date": "Select day",
+        "save": "Save changes"
+    },
+
+
+    "patient": {
+        "detail-doctor": {
+           "schedule": "Schedule",
+           "no-appointment": "An appointment for this day is now unavailable. Please check-in another day!!!",
+           "select": "Select",
+           "book-free": " and book for free"
+        },
+        "extra-doctor-infor": {
+            "text-address" : "Location",
+            "price": "Examination fee",
+            "detail": "Read more",
+            "payment": "Payment for the examination via: ",
+            "hide-price": "Read less"
+        },
+        "booking-modal": {
+            "title": "Medical appointment form",
+            "fullName": "Fullname",
+            "phoneNumber": "Phone number",
+            "email": "Email",
+            "address" : "Address",
+            "reason": "Health issue",
+            "birthday": "Date of birth",
+            "gender" :"Genders",
+            "btnConfirm": "Confirm",
+            "btnCancel": "Cancel",
+            "priceBooking": "Free to book",
+            "price": "Price"
+        }
+    },
+
+    "doctor": {
+        "manage-doctor": {
+            "append-doctor-info": "manage doctor information",
+            "select-doctor": "Select doctor",
+
+            "info": "Description",
+            "appointment-charge": "Appointment charge range",
+            "payment-method": "Payment method",
+            "province-state": "Province/State",
+            "clinic-name": "Clinic name",
+            "clinic-location": "Clinic location",
+            "note": "Note",
+            "comment": "Comment"
+
+        }
+    },
+    "specialty": {
+        "save": "save",
+        "manage-specialty": {
+            "title": "Manage specialty",
+            "home-title": "Popular specialty",
+            "more": "Watch more",
+            "add-new": "Add new",
+            "name": "Speciality name",
+            "image": "Speciality image"
+        }
     },
 
     "common": {
         "add": "Add",
+        "addInfo": "Add to new record",
         "edit": "Edit",
         "delete": "Delete",
         "decentralize": "Decentralize",
         "close": "Close",
-        "save": "Save",
+        "save": "Save", 
+        "saveInfo": "Save changes",
         "refresh": "Refresh",
         "accept": "Accept",
         "confirm": "Confirm",
