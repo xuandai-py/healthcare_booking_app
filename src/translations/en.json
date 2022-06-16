@@ -77,7 +77,9 @@
             "clinic-name": "Clinic name",
             "clinic-location": "Clinic location",
             "note": "Note",
-            "comment": "Comment"
+            "comment": "Comment",
+            "select-specialty": "Select specialty",
+            "select-clinic": "Select clinic"
 
         }
     },
