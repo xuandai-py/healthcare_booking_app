@@ -20,9 +20,9 @@ class DoctorExtraInfor extends Component {
     }
 
     async componentDidMount() {
-
-
-
+        if (this.props.doctorIdFromParent) {
+            this.fetchExtraDoctorInfor(this.props.doctorIdFromParent)
+        }
     }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {
@@ -31,12 +31,7 @@ class DoctorExtraInfor extends Component {
         }
 
         if (this.props.doctorIdFromParent !== prevProps.doctorIdFromParent) {
-            let res = await getExtraInforDoctorById(this.props.doctorIdFromParent)
-            if (res && res.errCode === 0) {
-                this.setState({
-                    extraInfor: res.data
-                })
-            }
+            this.fetchExtraDoctorInfor(this.props.doctorIdFromParent)
         }
     }
 
@@ -44,6 +39,15 @@ class DoctorExtraInfor extends Component {
         this.setState({
             isShowDetail: !this.state.isShowDetail
         })
+    }
+
+    fetchExtraDoctorInfor = async (doctorIdFromParent) => {
+        let res = await getExtraInforDoctorById(doctorIdFromParent)
+            if (res && res.errCode === 0) {
+                this.setState({
+                    extraInfor: res.data
+                })
+            }
     }
 
     render() {
