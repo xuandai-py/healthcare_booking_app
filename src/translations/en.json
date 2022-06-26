@@ -79,7 +79,8 @@
             "note": "Note",
             "comment": "Comment",
             "select-specialty": "Select specialty",
-            "select-clinic": "Select clinic"
+            "select-clinic": "Select clinic",
+            "more": "Read more"
 
         }
     },
@@ -152,7 +153,8 @@
             
         },
         "doctor": {
-            "manage-schedule": "Manage doctor's schedule"
+            "manage-schedule": "Manage doctor's schedule",
+            "manage-patient": "Manage doctor's patient"
         }
     },
 

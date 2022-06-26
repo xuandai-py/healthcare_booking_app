@@ -77,7 +77,12 @@
             "note": "Ghi chú",
             "comment": "Thông tin",
             "select-specialty": "Chọn chuyên khoa",
-            "select-clinic": "Chọn phòng khám"
+            "select-clinic": "Chọn phòng khám",
+            "more": "Xem thêm"
+        },
+        "bill": {
+            "title": "Gửi thông tin hóa đơn khám bệnh",
+            "confirm": "Xác nhận"
         }
     },
 
@@ -90,6 +95,18 @@
             "add-new": "Thêm mới",
             "name": "Tên chuyên khoa",
             "image": "Ảnh chuyên khoa"
+        }
+    },
+
+    "clinic": {
+        "manage-clinic": {
+            "title": "Quản lý phòng khám",
+            "home-title": "Chuyên khoa phổ biến",
+            "more": "Xem thêm",
+            "add-new": "Thêm mới",
+            "name": "Tên phòng khám",
+            "image": "Ảnh phòng khám",
+            "address": "Địa chỉ phòng khám"
         }
     },
 
@@ -150,7 +167,8 @@
             
         },
         "doctor": {
-            "manage-schedule": "Quản lý kế hoạch khám bệnh"
+            "manage-schedule": "Quản lý kế hoạch khám bệnh",
+            "manage-patient": "Quản lý bệnh nhân khám bệnh"
         }
     },
 

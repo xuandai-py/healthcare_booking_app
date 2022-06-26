@@ -38,15 +38,26 @@ class DetailSpecialty extends Component {
                         arr.map(item => arrDoctorId.push(item.doctorId))
                     }
                 }
+
+                let dataProvince = resProvince.data
+                if (dataProvince && dataProvince.length > 0) {
+                    dataProvince.unshift({
+                        createdAt: null,
+                        keyMap: "ALL",
+                        type: "PROVINCE",
+                        valueVi: "Toàn quốc",
+                        valueEn: "ALL"
+                    })
+                }
+
                 this.setState({
                     dataDetailSpecialty: res.data,
                     arrDoctorId: arrDoctorId,
-                    listProvince: resProvince.data
+                    listProvince: dataProvince ? dataProvince : []
                 })
             }
         }
 
-        console.log(this.state);
     }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {
@@ -56,8 +67,31 @@ class DetailSpecialty extends Component {
         }
     }
 
-    handleOnChangeSelect = (e) => {
-        console.log('handleOnChangeSelect: ', e.target.value);
+    handleOnChangeSelect = async (e) => {
+        if (this.props.match && this.props.match.params && this.props.match.params.id) {
+            let id = this.props.match.params.id
+            let location = e.target.value
+
+            let res = await getDetailSpecialtyById({
+                id: id,
+                location: location
+            })
+
+            if (res && res.errCode === 0) {
+                let arrDoctorId = []
+                if (res.data && !_.isEmpty(res.data)) {
+                    let arr = res.data.doctorSpecialty
+                    if (arr && arr.length > 0) {
+                        arr.map(item => arrDoctorId.push(item.doctorId))
+                    }
+                }
+
+                this.setState({
+                    dataDetailSpecialty: res.data,
+                    arrDoctorId: arrDoctorId,
+                })
+            }
+        }
     }
 
     render() {
@@ -93,7 +127,12 @@ class DetailSpecialty extends Component {
 
                                 <div className="each-doctor" key={index}>
                                     <div className="dt-content-left">
-                                        <ProfileDoctor doctorId={item} isShowDescriptionDoctor={true} />
+                                        <ProfileDoctor
+                                            doctorId={item}
+                                            isShowDescriptionDoctor={true}
+                                            isShowPrice={false}
+                                            isShowLink={true}
+                                        />
                                     </div>
                                     <div className="dt-content-right">
                                         <div className="doctor-schedule">

@@ -18,7 +18,6 @@ class Header extends Component {
 
     componentDidMount() {
         let { userInfo } = this.props;
-        console.log(userInfo);
         
         let menu = [];
         if (userInfo && !_.isEmpty(userInfo)) {
@@ -40,7 +39,6 @@ class Header extends Component {
         this.props.changeLanguageDispatch (language)
     }
     render() {
-        console.log('User info checking: ',this.props.userInfo)
         const language = this.props.languages
         const { processLogout, userInfo } = this.props;
 

@@ -40,15 +40,15 @@ class TableManageUser extends Component {
 
     handleEditUser = (user) => {
         this.props.handleEditKey(user)
-        console.log('handle edit key: ', user);
+
         // lưu đúng nhưng cập nhật sai >
     }
 
 
     render() {
         let arrUsers = this.state.usersRedux
-        console.log('Check all props users: ', this.props.listUsers);
-        console.log('Check all state users: ', this.state.usersRedux);
+
+
         return (
             <>
                 <div className="users-table mt-3 mx-2">

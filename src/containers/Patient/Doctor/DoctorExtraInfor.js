@@ -54,8 +54,7 @@ class DoctorExtraInfor extends Component {
         let { isShowDetail, extraInfor } = this.state
         let evValue = extraInfor.priceTypeData
         let { language } = this.props;
-        console.log('000000000000000000000000000000', this.props.doctorIdFromParent);
-        console.log('000000000000000000000000000000', this.state);
+     
         return (
             <>
                 <div className="doctor-extra-infor-container">

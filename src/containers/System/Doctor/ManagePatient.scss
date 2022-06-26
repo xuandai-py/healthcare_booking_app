@@ -1,0 +1,37 @@
+
+.manage-patient-container{
+ 
+    .manage-patient-title{
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        font-size: 17px;
+        margin: 15px 0;
+        
+        
+    }
+
+    .pick-hour-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrapm;
+        padding-top: 10px;
+
+        button{
+            padding: 5px 10px;
+            border: 1px solid grey;
+
+        }
+
+        .btn-patient{
+            
+            &.active{
+                background-color: #0071ba;
+            }
+        }
+    }
+
+
+
+    
+}

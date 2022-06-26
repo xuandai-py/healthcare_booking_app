@@ -23,7 +23,6 @@ class ModalEditUser extends Component {
 
     componentDidMount() {
         let user = this.props.currentEditUser
-        console.log('editing user: ', user);
         if (user && !_.isEmpty(user)) {
             this.setState({
                 id: user.id,
@@ -33,12 +32,7 @@ class ModalEditUser extends Component {
                 lastName: user.lastName,
                 address: user.address
             })
-            console.log('before Didmout state: ', this.state);
         }
-
-
-
-        console.log('Didmout edit modal: ', this.props.currentEditUser);
     }
 
     toggle = () => {
@@ -51,14 +45,12 @@ class ModalEditUser extends Component {
         this.setState({
             ...copyState
         })
-        console.log(event.target.value, id)
     }
 
     checkValideInput = () => {
         let isValid = true
         let arrInput = ['email', 'password', 'firstName', 'lastName', 'address']
         for (let i = 0; i < arrInput.length; i++) {
-            console.log('Check loop ', this.state[arrInput[i], arrInput[i]]);
             if (!this.state[arrInput[i]]) {
                 isValid = false
                 alert('Missing parameter: ' + arrInput[i])
@@ -71,10 +63,7 @@ class ModalEditUser extends Component {
 
     handleSaveUser = () => {
         let isValid = this.checkValideInput()
-        console.log('data modal', this.state);
-
         if (isValid === true) {
-            console.log('Check props child', this.props);
             this.props.editUser(this.state)
 
         }
@@ -86,7 +75,6 @@ class ModalEditUser extends Component {
 
 
     render() {
-        console.log('Check props from parent: ', this.props);
 
         return (
             <Modal

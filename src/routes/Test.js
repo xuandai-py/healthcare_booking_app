@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Test extends Component {
 
     render() {
-        console.log("This is test page");
+
 
         return (
             <>

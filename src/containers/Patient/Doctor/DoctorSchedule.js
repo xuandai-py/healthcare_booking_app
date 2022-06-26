@@ -24,11 +24,14 @@ class DoctorSchedule extends Component {
 
     async componentDidMount() {
         let { language } = this.props;
-
-        console.log('moment vi: ', moment(new Date()).format('dddd - DD/MM'));
-        console.log('moment en: ', moment(new Date()).locale('en').format('ddd - DD/MM'));
         let allDays = this.getArrDays(language)
 
+        if(this.props.doctorIdFromParent){
+            let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value)
+            this.setState({
+                allAvailableTime: res.data ? res.data : []
+            })
+        }
         this.setState({
             allDays: allDays,
         })
@@ -82,7 +85,6 @@ class DoctorSchedule extends Component {
 
         if (this.props.doctorIdFromParent !== prevProps.doctorIdFromParent) {
             let allDays = this.getArrDays(this.props.language)
-            console.log('sadas', allDays);
             let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value)
             this.setState({
                 allAvailableTime: res.data ? res.data : []
@@ -91,7 +93,6 @@ class DoctorSchedule extends Component {
     }
 
     handleOnChangeSelect = async (event) => {
-        console.log(event);
         if (this.props.doctorIdFromParent && this.props.doctorIdFromParent !== -1) {
             let doctorId = this.props.doctorIdFromParent
             let scheduleDate = event.value
@@ -102,7 +103,6 @@ class DoctorSchedule extends Component {
                     allAvailableTime: res.data
                 })
             }
-            console.log('check res getScheduleDoctorByDate: ', res);
         }
     }
 
@@ -130,10 +130,6 @@ class DoctorSchedule extends Component {
                 options.push(item)
             })
         }
-
-        console.log(options);
-
-
 
         return (
             <>

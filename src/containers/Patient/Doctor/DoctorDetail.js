@@ -20,7 +20,7 @@ class DetailDoctor extends Component {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
             let id = this.props.match.params.id
             let res = await getDoctorDetailInfo(id);
-            console.log(`Checking response: id: ${id}, res: ${res.data}`, res);
+
 
             if (res && res.errCode === 0) {
                 this.setState({
@@ -35,7 +35,6 @@ class DetailDoctor extends Component {
 
 
     render() {
-        console.log(this.state);
         let { detailDoctor } = this.state;
         let nameVi = '', nameEn = ''
         if (detailDoctor && detailDoctor.positionData) {
@@ -69,11 +68,11 @@ class DetailDoctor extends Component {
                                 doctorIdFromParent={detailDoctor && detailDoctor.id ? detailDoctor.id : -1}
                             />
                         </div>
-                        <div className="content-right col-6" style={{borderLeft: `2px solid #eee`}}>
-                            <DoctorExtraInfor doctorIdFromParent={this.state.currentDoctorId}/>
+                        <div className="content-right col-6" style={{ borderLeft: `2px solid #eee` }}>
+                            <DoctorExtraInfor doctorIdFromParent={this.state.currentDoctorId} />
                         </div>
                     </div>
-                    
+
                     <div className="doctor-detail-info">
                         {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML
                             && <div dangerouslySetInnerHTML={{ __html: detailDoctor.Markdown.contentHTML }}>

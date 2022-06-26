@@ -1,6 +1,6 @@
-.detail-specialty-container{
+.detail-clinic-container{
     //padding: 10px;
-    .description-specialty{
+    .description-clinic, .name-clinic{
         background-color: white !important;
         box-shadow: 0 1px 6px #20212447;
         border-radius: 8px;
@@ -13,7 +13,7 @@
         
     }
 
-    .detail-specialty-body{
+    .detail-clinic-body{
         padding: 15px 100px;
         background: #eeeeee
     }

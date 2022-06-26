@@ -43,14 +43,12 @@ class ModalUser extends Component {
         this.setState({
             ...copyState
         })
-        console.log(event.target.value, id)
     }
 
     checkValideInput = () => {
         let isValid = true
         let arrInput = ['email', 'password', 'firstName', 'lastName', 'address']
         for (let i = 0; i < arrInput.length; i++) {
-            console.log('Check loop ', this.state[arrInput[i], arrInput[i]]);
             if (!this.state[arrInput[i]]) {
                 isValid = false
                 alert('Missing parameter: ' + arrInput[i])
@@ -63,19 +61,15 @@ class ModalUser extends Component {
 
     handleAddNewUser = () => {
         let isValid = this.checkValideInput()
-        console.log('data modal', this.state);
         
         if (isValid ===true) {
-            console.log('Check props child', this.props);
             this.props.createNewUser(this.state)
-            
         }
     }
 
     
     render() {
-        console.log('Check props', this.props);
-        console.log('Check props isOpen', this.props.isOpen);
+       
         return (
             <Modal
                 size="lg" centered

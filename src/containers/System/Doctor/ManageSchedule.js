@@ -19,7 +19,7 @@ class ManageSchedule extends Component {
         this.state = {
             listDoctor: [],
             selectedDoctor: {},
-            currentDate: '',
+            currentDate: new Date(),
             rangeTime: []
         }
     }
@@ -27,14 +27,14 @@ class ManageSchedule extends Component {
     componentDidMount() {
         this.props.fetchAllDoctor();
         this.props.fetchAllScheduleTime();
-        console.log('fetchAllDoctor: ', this.props.fetchAllDoctor());
+
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.allDoctors !== this.props.allDoctors) {
             let dataSelect = this.extractDataInputSelect(this.props.allDoctors)
-            console.log(dataSelect);
-            console.log('fetchAllDoctorFromprops: ', this.props.allDoctors);
+
+
             this.setState({
                 listDoctor: dataSelect
             })
@@ -94,7 +94,7 @@ class ManageSchedule extends Component {
     }
 
     handleClickBtnTime = (time) => {
-        console.log('check time click', time);
+
         let { rangeTime } = this.state;
         if (rangeTime && rangeTime.length > 0) {
             rangeTime = rangeTime.map((item) => {
@@ -113,7 +113,7 @@ class ManageSchedule extends Component {
         let { rangeTime, selectedDoctor, currentDate } = this.state;
         let result = [];
 
-        console.log(rangeTime);
+
         if (!currentDate) {
             toast.error('Invalid Date selected');
             return;
@@ -145,7 +145,7 @@ class ManageSchedule extends Component {
 
         let res = await saveBulkCreateScheduleDoctor({
             arrSchedule: result,
-            doctorId: selectedDoctor.value, 
+            doctorId: selectedDoctor.value,
             formatedDate: formatedDate
             // contain value for query
         });
@@ -159,11 +159,11 @@ class ManageSchedule extends Component {
     }
 
     render() {
-        console.log('check state: ', this.props);
+
 
         let { rangeTime } = this.state;
         let { language } = this.props;
-        let yesterday = new Date(new Date().setDate(new Date().getDate()-1))
+        let yesterday = new Date(new Date().setDate(new Date().getDate() - 1))
         return (
 
             <div className="manage-schedule-container">

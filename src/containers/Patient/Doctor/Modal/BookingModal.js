@@ -11,8 +11,40 @@ import * as actions from "../../../../store/actions";
 import { languages } from '../../../../utils';
 import Select from 'react-select'
 import { postPatientAppointment } from '../../../../services/userService'
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 import moment from 'moment';
+
+import PacmanLoader from 'react-spinners/PacmanLoader'
+import { css } from "@emotion/react";
+import Loading from '../../../../utils/Loading';
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  z-index: 2000;
+  /* border: 1px red solid;
+  width: 100vw;
+  height: 100vh;
+  position: absolute; */
+
+ /* .loader-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1999;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    background-color: #fff;
+ } */
+
+ /* .modal{
+     z-index: 1000 !important;
+ } */
+`;
 class BookingModal extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +58,9 @@ class BookingModal extends Component {
             doctorId: '',
             selectedGender: '',
             genders: [],
-            timeType: ''
+            timeType: '',
+            isLoading: false,
+            isLoadingSpinner: false
         }
     }
 
@@ -37,14 +71,14 @@ class BookingModal extends Component {
     dataGenderBuilder = (data) => {
         let result = [];
         let { language } = this.props;
-        
+
         if (data && data.length > 0) {
             data.map(item => {
                 let object = {};
                 object.label = language === languages.VI ? item.valueVi : item.valueEn;
                 object.value = item.keyMap
                 result.push(object)
-            })            
+            })
         }
 
         return result;
@@ -96,7 +130,9 @@ class BookingModal extends Component {
     }
 
     confirm = async () => {
-        let date = new Date(this.state.birthday).getTime();
+        this.setState({ isLoading: true })
+        //let date = new Date(this.state.birthday).getTime();
+        let date = this.props.scheduleData.date
         let timeString = this.timeBookingBuilder(this.props.scheduleData);
         let doctorName = this.getDoctorName(this.props.scheduleData)
         let res = await postPatientAppointment({
@@ -116,22 +152,45 @@ class BookingModal extends Component {
 
         if (res && res.errCode === 0) {
             toast.success('Booking an appointment had been approved')
+            this.setState({
+                isLoading: false
+            })
             this.props.toggle()
         } else {
+            this.setState({
+                isLoading: false
+            })
             toast.error('Error!!!')
         }
-        console.log('confirm: ', this.state);
+
+        this.resetForm();
+    }
+
+    resetForm = () => {
+        this.setState = {
+            fullName: '',
+            phoneNumber: '',
+            email: '',
+            address: '',
+            reason: '',
+            birthday: '',
+            doctorId: '',
+            selectedGender: '',
+            genders: [],
+            timeType: '',
+            isLoading: false
+        }
     }
 
     timeBookingBuilder = (scheduleData) => {
-        let {language} = this.props
+        let { language } = this.props
         if (scheduleData && !_.isEmpty(scheduleData)) {
 
             let date = language === languages.VI ?
                 moment.unix(+scheduleData.date / 1000).format('dddd - DD/MM/YYYY')
-                : 
+                :
                 moment.unix(+scheduleData.date / 1000).locale('en').format('ddd - MM/DD/YYYY')
-            
+
             let time = language === languages.VI ? scheduleData.timeTypeData.valueVi : scheduleData.timeTypeData.valueEn
             return `${time}  - ${date}`
         }
@@ -139,7 +198,7 @@ class BookingModal extends Component {
     }
 
     getDoctorName = (scheduleData) => {
-        let {language} = this.props
+        let { language } = this.props
         if (scheduleData && !_.isEmpty(scheduleData)) {
 
             let name = language === languages.VI ?
@@ -151,11 +210,11 @@ class BookingModal extends Component {
         return ''
     }
     render() {
-
+        let { isLoading } = this.state
         let { isOpen, toggle, scheduleData, doctorId } = this.props;
         let id = scheduleData && !_.isEmpty(scheduleData) ? scheduleData.doctorId : '';
 
-      
+
         return (
             <>
                 <Modal
@@ -172,6 +231,7 @@ class BookingModal extends Component {
                                     doctorId={doctorId}
                                     isShowDescriptionDoctor={false}
                                     scheduleData={scheduleData}
+                                    isShowPrice={true}
                                 />
                             </div>
                             {/* <div className="col-12 price">Gia kham</div> */}
@@ -231,10 +291,17 @@ class BookingModal extends Component {
 
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={() => this.confirm()}><FormattedMessage id="patient.booking-modal.btnConfirm" /></Button>
-                        <Button color="danger" onClick={toggle}><FormattedMessage id="patient.booking-modal.btnCancel" /></Button>
+                        <Button color="primary" onClick={() => this.confirm()}>
+                            <FormattedMessage id="patient.booking-modal.btnConfirm" />
+                        </Button>
+                        <Button color="danger" onClick={toggle}>
+                            <FormattedMessage id="patient.booking-modal.btnCancel" />
+                        </Button>
                     </ModalFooter>
                 </Modal>
+                {isLoading && <Loading />}
+
+
             </>
         );
     }

@@ -30,7 +30,6 @@ class UserManage extends Component {
                 arrUser: response.users
             })
         }
-        console.log('get all users from node: ', response);
     }
 
 
@@ -61,7 +60,7 @@ class UserManage extends Component {
                 alert(response.errMessage)
             }
 
-            console.log(response);
+
         } catch (error) {
             console.error(error);
         }
@@ -81,14 +80,12 @@ class UserManage extends Component {
 
                 emitter.emit('EVENT_CLEAR_MODAL_DATA', { 'id': 'your id' })
             }
-            console.log(response);
         } catch (error) {
             console.error('createNewUser: ', error);
         }
     }
 
     handleEditUser = (user) => {
-        console.log('Check edit user: ', user);
         this.setState({
             isOpenModalEditUser: true,
             userEdit: user
@@ -109,7 +106,7 @@ class UserManage extends Component {
         } catch (error) {
             console.error(error);
         }
-        
+
     }
 
 
